@@ -17,8 +17,8 @@
   },
   "theiaExtensions": [
     {
-      "frontend": "lib/browser/theia-ide-frontend-module",
-      "electronMain": "lib/electron-main/theia-ide-main-module"
+      "frontend": "lib/browser/craft-studio-frontend-module",
+      "electronMain": "lib/electron-main/craft-studio-main-module"
     }
   ],
   "keywords": [

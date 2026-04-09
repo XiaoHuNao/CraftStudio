@@ -13,10 +13,10 @@ import { Command, CommandContribution, CommandRegistry } from '@theia/core/lib/c
 import { MenuContribution, MenuModelRegistry, MenuPath } from '@theia/core/lib/common/menu';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 
-export namespace TheiaIDEMenus {
-    export const THEIA_IDE_HELP: MenuPath = [...CommonMenus.HELP, 'theia-ide'];
+export namespace CraftStudioMenus {
+    export const CRAFT_STUDIO_HELP: MenuPath = [...CommonMenus.HELP, 'theia-ide'];
 }
-export namespace TheiaIDECommands {
+export namespace CraftStudioCommands {
     export const CATEGORY = 'CraftStudio';
     export const REPORT_ISSUE: Command = {
         id: 'theia-ide:report-issue',
@@ -31,7 +31,7 @@ export namespace TheiaIDECommands {
 }
 
 @injectable()
-export class TheiaIDEContribution implements CommandContribution, MenuContribution {
+export class CraftStudioContribution implements CommandContribution, MenuContribution {
 
     @inject(WindowService)
     protected readonly windowService: WindowService;
@@ -40,23 +40,23 @@ export class TheiaIDEContribution implements CommandContribution, MenuContributi
     static DOCUMENTATION_URL = 'https://theia-ide.org/docs/user_getting_started/';
 
     registerCommands(commandRegistry: CommandRegistry): void {
-        commandRegistry.registerCommand(TheiaIDECommands.REPORT_ISSUE, {
-            execute: () => this.windowService.openNewWindow(TheiaIDEContribution.REPORT_ISSUE_URL, { external: true })
+        commandRegistry.registerCommand(CraftStudioCommands.REPORT_ISSUE, {
+            execute: () => this.windowService.openNewWindow(CraftStudioContribution.REPORT_ISSUE_URL, { external: true })
         });
-        commandRegistry.registerCommand(TheiaIDECommands.DOCUMENTATION, {
-            execute: () => this.windowService.openNewWindow(TheiaIDEContribution.DOCUMENTATION_URL, { external: true })
+        commandRegistry.registerCommand(CraftStudioCommands.DOCUMENTATION, {
+            execute: () => this.windowService.openNewWindow(CraftStudioContribution.DOCUMENTATION_URL, { external: true })
         });
     }
 
     registerMenus(menus: MenuModelRegistry): void {
-        menus.registerMenuAction(TheiaIDEMenus.THEIA_IDE_HELP, {
-            commandId: TheiaIDECommands.REPORT_ISSUE.id,
-            label: TheiaIDECommands.REPORT_ISSUE.label,
+        menus.registerMenuAction(CraftStudioMenus.CRAFT_STUDIO_HELP, {
+            commandId: CraftStudioCommands.REPORT_ISSUE.id,
+            label: CraftStudioCommands.REPORT_ISSUE.label,
             order: '1'
         });
-        menus.registerMenuAction(TheiaIDEMenus.THEIA_IDE_HELP, {
-            commandId: TheiaIDECommands.DOCUMENTATION.id,
-            label: TheiaIDECommands.DOCUMENTATION.label,
+        menus.registerMenuAction(CraftStudioMenus.CRAFT_STUDIO_HELP, {
+            commandId: CraftStudioCommands.DOCUMENTATION.id,
+            label: CraftStudioCommands.DOCUMENTATION.label,
             order: '2'
         });
     }

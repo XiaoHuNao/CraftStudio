@@ -21,7 +21,7 @@ import { VSXEnvironment } from '@theia/vsx-registry/lib/common/vsx-environment';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 
 @injectable()
-export class TheiaIDEGettingStartedWidget extends GettingStartedWidget {
+export class CraftStudioGettingStartedWidget extends GettingStartedWidget {
 
     @inject(VSXEnvironment)
     protected readonly environment: VSXEnvironment;

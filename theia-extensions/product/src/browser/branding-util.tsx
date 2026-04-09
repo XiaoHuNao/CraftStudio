@@ -9,7 +9,7 @@
 
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import * as React from 'react';
-import { getBrandingVariant } from './theia-ide-config';
+import { getBrandingVariant } from './craft-studio-config';
 
 export interface ExternalBrowserLinkProps {
     text: string;
@@ -63,7 +63,8 @@ export function renderExtendingCustomizing(windowService: WindowService): React.
                     text="OpenVSX online" url="https://open-vsx.org/" windowService={windowService} ></BrowserLink>.
         </div>
         <div>
-            Furthermore, the CraftStudio is based on the flexible Theia platform. Therefore, the CraftStudio can serve as a <span className='gs-text-bold'>template</span> for building
+            Furthermore, the CraftStudio is based on the flexible Theia platform.
+            Therefore, the CraftStudio can serve as a <span className='gs-text-bold'>template</span> for building
             custom tools and IDEs. Browse <BrowserLink text="the documentation" url="https://theia-ide.org/docs/composing_applications/"
                 windowService={windowService} ></BrowserLink> to help you customize and build your own Eclipse Theia-based product.
         </div>
