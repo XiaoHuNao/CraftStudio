@@ -45,7 +45,7 @@ spec:
   podRetention: never()
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
@@ -197,51 +197,51 @@ def createMacInstaller() {
 
     // Step 3: Unpack DMG files for signing
     architectures.each { arch ->
-        def mountPoint = "applications/electron/dist/${arch}/TheiaIDE-dmg-mounted"
+        def mountPoint = "applications/electron/dist/${arch}/CraftStudio-dmg-mounted"
         sh "rm -rf ${mountPoint}"
         sh "mkdir -p ${mountPoint}"
-        sh "hdiutil attach applications/electron/dist/${arch}/TheiaIDE.dmg -mountpoint ${mountPoint}"
+        sh "hdiutil attach applications/electron/dist/${arch}/CraftStudio.dmg -mountpoint ${mountPoint}"
         
         // Create DMG layout structure
-        sh "mkdir -p applications/electron/dist/${arch}/TheiaIDE-dmg-layout/.background"
+        sh "mkdir -p applications/electron/dist/${arch}/CraftStudio-dmg-layout/.background"
         
         // Copy DS_Store if exists
         sh """
             if [ -f ${mountPoint}/.DS_Store ]; then
-                ditto ${mountPoint}/.DS_Store applications/electron/dist/${arch}/TheiaIDE-dmg-layout/
+                ditto ${mountPoint}/.DS_Store applications/electron/dist/${arch}/CraftStudio-dmg-layout/
             fi
         """
         
         // Copy app and create Applications symlink
-        sh "ditto ${mountPoint}/TheiaIDE.app applications/electron/dist/${arch}/TheiaIDE-dmg-layout/TheiaIDE.app"
+        sh "ditto ${mountPoint}/CraftStudio.app applications/electron/dist/${arch}/CraftStudio-dmg-layout/CraftStudio.app"
         // Make sure the destination doesn't exist before creating the symlink
-        sh "rm -f applications/electron/dist/${arch}/TheiaIDE-dmg-layout/Applications"
-        sh "ln -sf /Applications applications/electron/dist/${arch}/TheiaIDE-dmg-layout/Applications"
+        sh "rm -f applications/electron/dist/${arch}/CraftStudio-dmg-layout/Applications"
+        sh "ln -sf /Applications applications/electron/dist/${arch}/CraftStudio-dmg-layout/Applications"
         
         // Detach mounted DMG
         sh "hdiutil detach ${mountPoint}"
         
         // Step 4: Remove quarantine bits from all files
-        sh "xattr -d -r com.apple.quarantine applications/electron/dist/${arch}/TheiaIDE-dmg-layout || true"
+        sh "xattr -d -r com.apple.quarantine applications/electron/dist/${arch}/CraftStudio-dmg-layout || true"
     }
     
     // Step 5: Sign binaries
     sh 'yarn --network-timeout 100000 --frozen-lockfile --force'
     sshagent(['projects-storage.eclipse.org-bot-ssh']) {
         architectures.each { arch ->
-            def appPath = "/${pwd()}/applications/electron/dist/${arch}/TheiaIDE-dmg-layout/TheiaIDE.app"
+            def appPath = "/${pwd()}/applications/electron/dist/${arch}/CraftStudio-dmg-layout/CraftStudio.app"
             sh "yarn electron sign:directory -d \"${appPath}\""
         }
     }
 
     // Step 6: Create the final DMG files
     architectures.each { arch ->
-        sh "rm -f applications/electron/dist/${arch}/TheiaIDE.dmg"
-        sh "hdiutil create -volname TheiaIDE -srcfolder applications/electron/dist/${arch}/TheiaIDE-dmg-layout -fs HFS+ -format UDZO applications/electron/dist/${arch}/TheiaIDE.dmg"
-        sh "rm -rf applications/electron/dist/${arch}/TheiaIDE-dmg-layout"
+        sh "rm -f applications/electron/dist/${arch}/CraftStudio.dmg"
+        sh "hdiutil create -volname CraftStudio -srcfolder applications/electron/dist/${arch}/CraftStudio-dmg-layout -fs HFS+ -format UDZO applications/electron/dist/${arch}/CraftStudio.dmg"
+        sh "rm -rf applications/electron/dist/${arch}/CraftStudio-dmg-layout"
         
         // Cleanup files we don't require
-        sh "find applications/electron/dist/${arch} -type f ! -name \"TheiaIDE.dmg\" ! -name \"latest-mac.yml\" -delete"
+        sh "find applications/electron/dist/${arch} -type f ! -name \"CraftStudio.dmg\" ! -name \"latest-mac.yml\" -delete"
     }
     
     sh "ls -al applications/electron/dist/mac-arm64 applications/electron/dist/mac-x64"

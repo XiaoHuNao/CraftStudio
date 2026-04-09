@@ -1,8 +1,8 @@
 {
   "private": true,
   "name": "theia-ide-next-electron-app",
-  "description": "Eclipse Theia IDE Next product",
-  "productName": "Theia IDE Next",
+  "description": "CraftStudio product",
+  "productName": "CraftStudio",
   "version": "1.70.0",
   "main": "scripts/theia-electron-main.js",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "target": "electron",
     "frontend": {
       "config": {
-        "applicationName": "Theia IDE Next",
+        "applicationName": "CraftStudio",
         "brandingVariant": "next",
         "availableUpdateChannels": [
           "next"
@@ -37,7 +37,7 @@
           "uriScheme": "theia-next",
           "showWindowEarly": false,
           "splashScreenOptions": {
-            "content": "resources/TheiaIDENextSplash.svg",
+            "content": "resources/CraftStudioNextSplash.svg",
             "height": 276,
             "width": 446
           }

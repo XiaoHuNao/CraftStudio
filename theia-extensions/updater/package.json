@@ -2,7 +2,7 @@
   "private": true,
   "name": "theia-ide-updater-ext",
   "version": "1.70.0",
-  "description": "Eclipse Theia IDE Updater",
+  "description": "CraftStudio Updater",
   "dependencies": {
     "@theia/core": "1.70.0",
     "@theia/output": "1.70.0",

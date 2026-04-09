@@ -1,6 +1,6 @@
-# Publishing Guide for the Eclipse Theia IDE
+# Publishing Guide for CraftStudio
 
-This document provides a unified, structured guide for publishing a new version of the Theia IDE. It covers everything from updating package versions, preview testing, releasing, promoting to stable, and other post-release activities.
+This document provides a unified, structured guide for publishing a new version of CraftStudio. It covers everything from updating package versions, preview testing, releasing, promoting to stable, and other post-release activities.
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@ Every commit to the master branch is automatically published as a preview versio
 This guide differentiates between two version numbers:
 
 - **THEIA_VERSION**: (used variable: {{version}}) The version of Theia used in this release.
-- **THEIA_IDE_VERSION**: (used variable: {{ideVersion}}) The Theia IDE release version. Depending on the context:
+- **THEIA_IDE_VERSION**: (used variable: {{ideVersion}}) The CraftStudio release version. Depending on the context:
   - If there was **no** Theia release, increment the patch version by 1 (e.g., 1.47.0 -> 1.47.1 or 1.47.100 -> 1.47.101).
   - For a new Theia *minor* release (e.g., 1.48.0), use the same version as Theia.
   - For a new Theia *patch* release (e.g., 1.48.1), use Theia's patch version multiplied by 100 (e.g., 1.48.100).
@@ -98,10 +98,10 @@ After completing step 2.3, open a PR with your changes <https://github.com/eclip
    Update to Theia v{{version}}
    ```
 
-   OR (if it is a pure Theia IDE version update):
+   OR (if it is a pure CraftStudio version update):
 
    ```md
-   Publish Theia IDE {{ideVersion}}
+   Publish CraftStudio {{ideVersion}}
    ```
 
 ### 2.5. Mac Artifacts
@@ -148,20 +148,20 @@ Once the PR is merged and the preview build is created, follow these steps for t
    Title:
 
    ```md
-   Theia IDE {{majorMinor}}.x Preview Testing
+   CraftStudio {{majorMinor}}.x Preview Testing
    ```
 
    Body:
 
    ```md
-   The new version {{ideVersion}} of the Theia IDE is available on the preview channel now. Please join the preview testing!
+   The new version {{ideVersion}} of CraftStudio is available on the preview channel now. Please join the preview testing!
 
    You can download it here:
 
-   - [Linux](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/linux/TheiaIDE.AppImage)
-   - [Mac x86](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos/TheiaIDE.dmg)
-   - [Mac ARM](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos-arm/TheiaIDE.dmg)
-   - [Windows](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/windows/TheiaIDESetup.exe)
+   - [Linux](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/linux/CraftStudio.AppImage)
+   - [Mac x86](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos/CraftStudio.dmg)
+   - [Mac ARM](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos-arm/CraftStudio.dmg)
+   - [Windows](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/windows/CraftStudioSetup.exe)
 
    Update your existing installation by setting the preference `updates.channel` to `preview`.
 
@@ -172,7 +172,7 @@ Once the PR is merged and the preview build is created, follow these steps for t
    |:---|:---|:---|
    | {{ideVersion}} preview available | {{releaseDate}} | :white_check_mark: |
    | {{ideVersion}} community preview window | {{previewStart}} → {{previewEnd}} | :hourglass_flowing_sand: |
-   | Theia IDE {{majorMinor}}.x Promoted to Stable | {{previewEnd}} + 1 business day |  |
+   | CraftStudio {{majorMinor}}.x Promoted to Stable | {{previewEnd}} + 1 business day |  |
    | Docker image Publish | {{previewEnd}} + 1 business day |  |
    | Snap updated | {{previewEnd}} + 1 business day |  |
    ```
@@ -187,7 +187,7 @@ Once the PR is merged and the preview build is created, follow these steps for t
    Subject:
 
    ```md
-   Theia IDE {{majorMinor}}.x preview phase
+   CraftStudio {{majorMinor}}.x preview phase
    ```
 
    Body:
@@ -195,28 +195,28 @@ Once the PR is merged and the preview build is created, follow these steps for t
    ```md
    Hi everyone,
 
-   Version {{ideVersion}} of the Theia IDE is now available on the preview channel. Please join the preview test and help us stabilize the release.
+   Version {{ideVersion}} of CraftStudio is now available on the preview channel. Please join the preview test and help us stabilize the release.
    Visit the preview discussion for more information and coordination: https://github.com/eclipse-theia/theia/discussions/{{discussionNumber}}
    ```
 
 ### 3.2.3 Eclipse Theia Release discussion
 <!-- release: minor -->
 
-- Announce the start of the Theia IDE Preview Test phase in the Theia Release announcement (`Eclipse Theia v{{version}}`) discussion (see <https://github.com/eclipse-theia/theia/discussions/categories/release-announcements>):
+- Announce the start of the CraftStudio Preview Test phase in the Theia Release announcement (`Eclipse Theia v{{version}}`) discussion (see <https://github.com/eclipse-theia/theia/discussions/categories/release-announcements>):
 
    ```md
-   The preview test phase for the Theia IDE {{ideVersion}} has started. You can find the details here: 
+   The preview test phase for CraftStudio {{ideVersion}} has started. You can find the details here: 
    
    - https://github.com/eclipse-theia/theia/discussions/{{discussionNumber}}
    ```
 
-### 3.2.4 Optional: Announcement to Theia IDE Preview Testers
+### 3.2.4 Optional: Announcement to CraftStudio Preview Testers
 <!-- release: minor -->
 
-- Optional: Announce the start of the Theia IDE Preview Test phase to your testers (e.g., via Slack, Teams, E-Mail):
+- Optional: Announce the start of the CraftStudio Preview Test phase to your testers (e.g., via Slack, Teams, E-Mail):
 
    ```md
-   :theia: The Theia IDE preview {{ideVersion}} for Theia version {{version}} is now available!
+   :theia: The CraftStudio preview {{ideVersion}} for Theia version {{version}} is now available!
    Please take a moment to test it and provide feedback - whether you've run into issues or everything works as expected. {{linkToNewPreviewComment}}
 
    To help us get a quick overview, please react with the emoji for your OS (:ubuntu:, :windows:, :mac_arm:, :mac_x64:) once you updated to the new version.
@@ -239,17 +239,17 @@ Once the PR is merged and the preview build is created, follow these steps for t
 ### 3.3.1 Update Preview Discussion with new preview
 <!-- release: patch -->
 
-- For Patch Releases, use the [Preview discussion](#32-announce-preview-test-phase) and post a comment to announce the patch release of the Theia IDE: <https://github.com/eclipse-theia/theia/discussions/{{discussionNumber}}>
+- For Patch Releases, use the [Preview discussion](#32-announce-preview-test-phase) and post a comment to announce the patch release of CraftStudio: <https://github.com/eclipse-theia/theia/discussions/{{discussionNumber}}>
 
    ```md
-   The new version {{ideVersion}} of the Theia IDE is available on the preview channel now. Please join the preview testing!
+   The new version {{ideVersion}} of CraftStudio is available on the preview channel now. Please join the preview testing!
 
    You can download it here:
 
-   - [Linux](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/linux/TheiaIDE.AppImage)
-   - [Mac x86](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos/TheiaIDE.dmg)
-   - [Mac ARM](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos-arm/TheiaIDE.dmg)
-   - [Windows](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/windows/TheiaIDESetup.exe)
+   - [Linux](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/linux/CraftStudio.AppImage)
+   - [Mac x86](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos/CraftStudio.dmg)
+   - [Mac ARM](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/macos-arm/CraftStudio.dmg)
+   - [Windows](https://download.eclipse.org/theia/ide-preview/{{ideVersion}}/windows/CraftStudioSetup.exe)
 
    Update your existing installation by setting the preference `updates.channel` to `preview`.
 
@@ -276,10 +276,10 @@ Once the PR is merged and the preview build is created, follow these steps for t
 ### 3.3.3 Optional: Internal Slack announcement
 <!-- release: patch -->
 
-- Optional: Announce the start of the Theia IDE Preview Test phase in your internal Slack channel:
+- Optional: Announce the start of the CraftStudio Preview Test phase in your internal Slack channel:
 
    ```md
-   :theia: The Theia IDE preview {{ideVersion}} for Theia version {{version}} is now available!
+   :theia: The CraftStudio preview {{ideVersion}} for Theia version {{version}} is now available!
    Please take a moment to test it and provide feedback - whether you've run into issues or everything works as expected. {{linkToNewPreviewComment}}
 
    To help us get a quick overview, please react with the emoji for your OS (:ubuntu:, :windows:, :mac_arm:, :mac_x64:) once you updated to the new version.
@@ -304,7 +304,7 @@ Promote the IDE using the [Build Job](https://ci.eclipse.org/theia/job/Theia%20-
 
 - Specify the release version in the `VERSION` parameter (e.g., 1.48.0), corresponding to the **THEIA_IDE_VERSION** copied from <https://download.eclipse.org/theia/ide-preview/>.
 
-- Post a comment to announce the official release of the Theia IDE:
+- Post a comment to announce the official release of CraftStudio:
 
    ```md
    {{ideVersion}} has been promoted to stable
@@ -313,7 +313,7 @@ Promote the IDE using the [Build Job](https://ci.eclipse.org/theia/job/Theia%20-
   - Update the [Base Preview discussion](#32-announce-preview-test-phase) status table with a checkmark and the version that has been published.
 
    ```md
-   | [Theia IDE {{majorMinor}}.x Promoted to Stable](https://download.eclipse.org/theia/ide/1.67.100/) | {{today}} | :white_check_mark: |
+   | [CraftStudio {{majorMinor}}.x Promoted to Stable](https://download.eclipse.org/theia/ide/1.67.100/) | {{today}} | :white_check_mark: |
    ```
 
   - Mark the message as the answer.

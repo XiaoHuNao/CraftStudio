@@ -1,8 +1,8 @@
 {
   "private": true,
   "name": "theia-ide-electron-app",
-  "description": "Eclipse Theia IDE product",
-  "productName": "Theia IDE",
+  "description": "CraftStudio product",
+  "productName": "CraftStudio",
   "version": "1.70.0",
   "main": "scripts/theia-electron-main.js",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "target": "electron",
     "frontend": {
       "config": {
-        "applicationName": "Theia IDE",
+        "applicationName": "CraftStudio",
         "reloadOnReconnect": true,
         "preferences": {
           "toolbar.showToolbar": true
@@ -31,7 +31,7 @@
         "electron": {
           "showWindowEarly": false,
           "splashScreenOptions": {
-            "content": "resources/TheiaIDESplash.svg",
+            "content": "resources/CraftStudioSplash.svg",
             "height": 276,
             "width": 446
           }

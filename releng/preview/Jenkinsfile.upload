@@ -58,7 +58,7 @@ spec:
   podRetention: never()
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
@@ -127,8 +127,8 @@ spec:
                             script {
                                 def packageJSON = readJSON file: "package.json"
                                 String version = "${packageJSON.version}"
-                                updateMetadata('mac-x64/TheiaIDE-' + version + '-mac.zip', 'mac-x64/latest-mac.yml', 'macos', false, '.zip', 1200)
-                                updateMetadata('mac-x64/TheiaIDE.dmg', 'mac-x64/latest-mac.yml', 'macos', false, '.dmg', 1200)
+                                updateMetadata('mac-x64/CraftStudio-' + version + '-mac.zip', 'mac-x64/latest-mac.yml', 'macos', false, '.zip', 1200)
+                                updateMetadata('mac-x64/CraftStudio.dmg', 'mac-x64/latest-mac.yml', 'macos', false, '.dmg', 1200)
                             }
                         }
                     }
@@ -149,7 +149,7 @@ spec:
   podRetention: never()
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
@@ -218,8 +218,8 @@ spec:
                             script {
                                 def packageJSON = readJSON file: "package.json"
                                 String version = "${packageJSON.version}"
-                                updateMetadata('mac-arm64/TheiaIDE-' + version + '-arm64-mac.zip', 'mac-arm64/latest-mac.yml', 'macos-arm', false, '.zip', 1200)
-                                updateMetadata('mac-arm64/TheiaIDE.dmg', 'mac-arm64/latest-mac.yml', 'macos-arm', false, '.dmg', 1200)
+                                updateMetadata('mac-arm64/CraftStudio-' + version + '-arm64-mac.zip', 'mac-arm64/latest-mac.yml', 'macos-arm', false, '.zip', 1200)
+                                updateMetadata('mac-arm64/CraftStudio.dmg', 'mac-arm64/latest-mac.yml', 'macos-arm', false, '.dmg', 1200)
                             }
                         }
                     }
@@ -240,7 +240,7 @@ spec:
   podRetention: never()
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
@@ -307,7 +307,7 @@ spec:
                     container('theia-dev') {
                         withCredentials([string(credentialsId: "github-bot-token", variable: 'GITHUB_TOKEN')]) {
                             script {
-                                updateMetadata('windows/TheiaIDESetup.exe', 'windows/latest.yml', 'windows', true, '.exe', 1200)
+                                updateMetadata('windows/CraftStudioSetup.exe', 'windows/latest.yml', 'windows', true, '.exe', 1200)
                             }
                         }
                     }
@@ -317,7 +317,7 @@ spec:
                             def updatableVersions = getUpdatableVersions()
                             echo 'updatableVersions: ' + updatableVersions
                             uploadInstaller('windows', 'windows')
-                            copyInstallerAndUpdateLatestYml('windows', 'TheiaIDESetup', 'exe', 'latest.yml', updatableVersions)
+                            copyInstallerAndUpdateLatestYml('windows', 'CraftStudioSetup', 'exe', 'latest.yml', updatableVersions)
                             }
                         }
                     }

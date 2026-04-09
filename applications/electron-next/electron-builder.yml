@@ -1,5 +1,5 @@
 appId: eclipse.theia.next
-productName: TheiaIDENext
+productName: CraftStudio
 copyright: Copyright © 2020-2025 Eclipse Foundation, Inc
 electronDist: ../../node_modules/electron/dist
 electronVersion: 39.7.0
@@ -21,12 +21,16 @@ files:
   - src-gen
   - lib
   - resources/icons/WindowIcon/512-512.png
-  - resources/TheiaIDENextSplash.svg
+  - resources/CraftStudioNextSplash.svg
   - scripts
   - "!**node_modules/**"
 extraResources:
   - from: ../../plugins
     to: app/plugins
+
+win:
+  signAndEditExecutable: false
+  forceCodeSigning: false
 
 linux:
   icon: resources/icons/LinuxLauncherIcons

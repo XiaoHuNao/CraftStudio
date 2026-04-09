@@ -1,5 +1,5 @@
 appId: eclipse.theia
-productName: TheiaIDE
+productName: CraftStudio
 copyright: Copyright © 2020-2025 Eclipse Foundation, Inc
 electronDist: ../../node_modules/electron/dist
 electronVersion: 39.7.0
@@ -21,7 +21,7 @@ files:
   - src-gen
   - lib
   - resources/icons/WindowIcon/512-512.png
-  - resources/TheiaIDESplash.svg
+  - resources/CraftStudioSplash.svg
   - scripts
   - "!**node_modules/**"
 extraResources:
@@ -29,7 +29,9 @@ extraResources:
     to: app/plugins
 
 win:
-  icon: resources/icons/WindowsLauncherIcons/TheiaIDE.ico
+  icon: resources/icons/WindowsLauncherIcons/CraftStudio.ico
+  signAndEditExecutable: false
+  forceCodeSigning: false
   target:
     - nsis
   publish:
@@ -67,9 +69,9 @@ nsis:
   menuCategory: true
   oneClick: false
   perMachine: false
-  installerHeaderIcon: resources/icons/WindowsLauncherIcons/TheiaIDE.ico
-  installerIcon: resources/icons/WindowsLauncherIcons/TheiaIDE.ico
-  uninstallerIcon: resources/icons/WindowsLauncherIcons/TheiaIDE.ico
+  installerHeaderIcon: resources/icons/WindowsLauncherIcons/CraftStudio.ico
+  installerIcon: resources/icons/WindowsLauncherIcons/CraftStudio.ico
+  uninstallerIcon: resources/icons/WindowsLauncherIcons/CraftStudio.ico
   installerSidebar: resources/icons/InstallerSidebarImage/164-314Windows.bmp
   uninstallerSidebar: resources/icons/InstallerSidebarImage/164-314Windows.bmp
   allowToChangeInstallationDirectory: true

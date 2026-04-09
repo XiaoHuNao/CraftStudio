@@ -1,5 +1,5 @@
 /**
- * This Jenkinsfile promotes a given version of the Theia IDE from /theia/ide-preview to /theia/ide
+ * This Jenkinsfile promotes a given version of CraftStudio from /theia/ide-preview to /theia/ide
  */
 
 /* groovylint-disable NestedBlockDepth */
@@ -41,7 +41,7 @@ pipeline {
                     // update latest.yaml on windows for differential updater
                     def updatableVersions = getUpdatableVersions(params.VERSION)
                     echo 'updatableVersions: ' + updatableVersions
-                    updateLatestYaml('windows', params.VERSION, 'TheiaIDESetup', 'exe', 'latest.yml', updatableVersions)
+                    updateLatestYaml('windows', params.VERSION, 'CraftStudioSetup', 'exe', 'latest.yml', updatableVersions)
                 }
             }
         }

@@ -8,7 +8,7 @@
  ********************************************************************************/
 
 :root {
-    --theia-branding-logo: url(../icons/TheiaIDE.png);
+    --theia-branding-logo: url(../icons/CraftStudio.png);
 }
 
 .theia-icon {
@@ -19,7 +19,7 @@
 }
 
 body[data-theia-branding="next"] {
-    --theia-branding-logo: url(../icons/TheiaIDE-next.png);
+    --theia-branding-logo: url(../icons/CraftStudio-next.png);
 }
 
 body[data-theia-branding="next"] .theia-icon {

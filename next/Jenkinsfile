@@ -1,5 +1,5 @@
 /**
- * This Jenkinsfile builds Theia Next across the major OS platforms
+ * This Jenkinsfile builds CraftStudio Next across the major OS platforms
  */
 import groovy.json.JsonSlurper
 
@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('Build') {
             parallel {
-                stage('Test Linux Theia@Next') {
+                stage('Test Linux CraftStudio@Next') {
                     agent {
                         kubernetes {
                             yaml """
@@ -27,7 +27,7 @@ kind: Pod
 spec:
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
@@ -75,7 +75,7 @@ spec:
                         }
                     }
                 }
-                stage('Test Mac Theia@Next') {
+                stage('Test Mac CraftStudio@Next') {
                     agent {
                         label 'macos'
                     }
@@ -90,7 +90,7 @@ spec:
                         }
                     }
                 }
-                stage('Test Windows Theia@Next') {
+                stage('Test Windows CraftStudio@Next') {
                     agent {
                         label 'windows'
                     }

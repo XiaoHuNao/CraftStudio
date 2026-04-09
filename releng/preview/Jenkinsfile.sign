@@ -42,7 +42,7 @@ spec:
   podRetention: never()
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
@@ -145,12 +145,12 @@ spec:
                                     def architectures = ['mac-x64', 'mac-arm64']
                                     architectures.each { arch -> 
                                         String targetFolder = "applications/electron/dist/${arch}"
-                                        def notarizedDmg = "${targetFolder}/TheiaIDE.dmg"
-                                        def mountPoint = "${targetFolder}/TheiaIDE-mount"
-                                        def extractedFolder = "${targetFolder}/TheiaIDE-extracted"
-                                        def rezippedFile = "${targetFolder}/TheiaIDE-rezipped.zip"
+                                        def notarizedDmg = "${targetFolder}/CraftStudio.dmg"
+                                        def mountPoint = "${targetFolder}/CraftStudio-mount"
+                                        def extractedFolder = "${targetFolder}/CraftStudio-extracted"
+                                        def rezippedFile = "${targetFolder}/CraftStudio-rezipped.zip"
                                         def archSuffix = arch == 'mac-arm64' ? '-arm64' : ''
-                                        def finalZip = "${targetFolder}/TheiaIDE-${version}${archSuffix}-mac.zip"
+                                        def finalZip = "${targetFolder}/CraftStudio-${version}${archSuffix}-mac.zip"
                                         
                                         // Clean and prepare
                                         sh "rm -rf \"${extractedFolder}\" \"${mountPoint}\""
@@ -161,7 +161,7 @@ spec:
                                           sh "hdiutil attach \"${notarizedDmg}\" -mountpoint \"${mountPoint}\""
                                           sleep 5
                                           // Copy .app and check contents
-                                          sh "ditto \"${mountPoint}/TheiaIDE.app\" \"${extractedFolder}/TheiaIDE.app\""
+                                          sh "ditto \"${mountPoint}/CraftStudio.app\" \"${extractedFolder}/CraftStudio.app\""
                                         } finally {
                                           sh "hdiutil detach \"${mountPoint}\""
                                         }
@@ -191,7 +191,7 @@ spec:
   podRetention: never()
   containers:
   - name: theia-dev
-    image: eclipsetheia/theia-blueprint:builder
+    image: xiaohunao/craftstudio:builder
     imagePullPolicy: Always
     command:
     - cat
